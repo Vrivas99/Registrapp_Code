@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" color="warning">
+      </ion-button>
+    </ion-buttons>
+    <p>home</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div id="container">
+      <div class="nombre"><b>Bienvenido </b>{{local_nombre}}</div>
+
+    <div *ngFor="let a of asistenciaspef"><p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p></div>
+      <ion-button (click)='insertarAsistencia()' color="danger" expand="block">marcar asistencia</ion-button>
+    
+    </div>
+</ion-content>
+

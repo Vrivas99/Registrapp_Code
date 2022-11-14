@@ -1,0 +1,36 @@
+<ion-header></ion-header>
+<ion-content>
+  <div class="pattern"></div>
+  <div id="aqui van las imagenes">
+    <div><img class="logo_inst" src="./assets/images/DuocNegativo.png" /></div>
+    <div><img class="logo_app" src="./assets/images/RegistrApp3.png" /></div>
+  </div>
+  <div>
+    <ion-card class="carta_posicion">
+      <ion-card-header>
+        <ion-card-title
+          ><div class="t">Iniciar Sesion</div>
+          <ion-card-subtitle
+            ><p>Debes ingresar con tu usuario institucional ej: vi.rivas</p>
+            <div class="recuperar">
+              <a class="link" (click)="recuperar()">¿Olvidaste tu contraseña?</a>
+            </div></ion-card-subtitle
+          >
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input [(ngModel)]="visual_input.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="visual_input.password" type="password" placeholder="****"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="boton"><ion-button (click)="iniciarsesion()" size="default">Ingresar</ion-button></div>
+</ion-content>
+<ion-footer></ion-footer>

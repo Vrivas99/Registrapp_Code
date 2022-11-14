@@ -1,0 +1,94 @@
+ion-header {
+  --background: #000000;
+}
+//patron background
+.pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23332500' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23664a00' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23996e00' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23cc9300' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23FFB800' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: -1;
+}
+//patron background
+//imagenes
+.logo_inst {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  width: 50%;
+}
+
+.logo_app {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+//imagenes
+//carta inicio sesion
+.carta_posicion {
+  margin-top: 15%;
+}
+ion-card {
+  --background: #000;
+  --color: #9efff0;
+  padding-bottom: 10px;
+}
+
+ion-card-title {
+  --color: #52ffe4;
+}
+.t {
+  text-align: left;
+}
+
+ion-card-subtitle {
+  --color: #d1fff8;
+}
+ion-item {
+  --background: #000;
+  --color: #d1fff8;
+}
+ion-input{
+  margin-left: 0%;
+}
+.boton {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+//carta inicio sesion
+//boton
+ion-button {
+  --background: #93e9be00;
+  --background-hover: #9efff0;
+  --background-activated: #88f4be;
+  --background-focused: #88f4be;
+  --color: #9efff0;
+  --border-radius: 0;
+  --border-color: #9efff0;
+  --border-style: solid;
+  --border-width: 1px;
+  --box-shadow: 0 2px 6px 0 rgba(9, 9, 9, 0);
+  --ripple-color: #9efff0;
+  margin-top: 10px;
+}
+//boton
+//recuperar
+.recuperar{
+  display: block;
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.link{
+  color:#0cfff7;
+  text-decoration: underline;
+}
+//recuperar
