@@ -16,7 +16,7 @@ necesito generar este archivo, acá agrego la referencia a todos los componentes
     imports: [
     CommonModule,
     IonicModule,
-    MatIconModule
+    MatIconModule,
     ]
 })
 export class ComponentsModule { }

@@ -47,18 +47,6 @@ export class HomeComponent implements OnInit {
   limpiarAsistencias(){
     this.asistenciaspef.length=0;
   }
-  
-  //funcion para insertar una asistencia a firebase
-  insertarAsistencia(){
-    const date = new Date();
-    const now = date.toLocaleString();
-    const nuevasistencia: AsistenciaModel = {asistencia:{nombre: this.local_nombre,dia: now }}
-    const path = 'Asistencias';
-    const id = this.afs.createID();
-    this.afs.createDoc(nuevasistencia,path,id).then( (res) => {
-      console.log('guardado con exito',res);
-    });
-  }
 
   //funcion para regresar al login
   regresar(){

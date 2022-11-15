@@ -1,6 +1,6 @@
 <ion-header>
   <div class="a">
-    <ion-toolbar class="my-toolbar">
+    <ion-toolbar class="catiwa-toolbar">
       <ion-buttons slot="start">
         <ion-button (click)="regresar()" fill="clear" color="warning">
           <mat-icon>logout</mat-icon>
@@ -22,10 +22,58 @@
     <p>Bienvenido</p>
     <p>{{local_nombre}}</p>
   </div>
-  <div id="container">
-  <div class="nombre"><b>Bienvenido </b>{{local_nombre}}</div>
 
-  <div *ngFor="let a of asistenciaspef"><p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p></div>
-    <ion-button (click)='insertarAsistencia()' color="danger" expand="block">marcar asistencia</ion-button>
+  <div class="ramos">
+    <ion-card>
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    </ion-card>
+    <ion-card-content>
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="dark">
+            <ion-label>Programacion</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content" *ngFor="let a of asistenciaspef">
+            <p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
   </div>
+  <div class="ramos">
+    <ion-card>
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    </ion-card>
+    <ion-card-content>
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="dark">
+            <ion-label>Estadistica</ion-label>
+          </ion-item>
+          
+          <div class="ion-padding" slot="content">
+            Estadistica
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </div>
+  <div class="ramos">
+    <ion-card>
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    </ion-card>
+    <ion-card-content>
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="dark">
+            <ion-label>Proceso Portafolio</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            Proceso Portafolio
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </div>
+
 </ion-content>
