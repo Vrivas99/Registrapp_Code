@@ -1,7 +1,30 @@
-.nombre{
-    text-align: center;
-}
-.fecha{
-    text-align: center;
-    font-weight: bold;
-}
+
+ion-tabs {
+    ion-tab-bar {
+      bottom: 0px;
+      width: 100%;
+      position: absolute;
+      backdrop-filter: blur(12px);
+      --color: var(--ion-color-white);
+      --background: rgba(255, 255, 255, 0.04);
+    }
+    ion-tab-button {
+      ion-label {
+        font-weight:500;
+        font-size: 12px;
+        line-height: 10px;
+      }
+      opacity: 0.75;
+    }
+    ion-tab-button.tab-selected {
+      opacity: 1;
+      ion-label {
+        font-weight: 400;
+      }
+    }
+  }
+  
+  .tab2{
+    z-index: -1;
+  }
+  

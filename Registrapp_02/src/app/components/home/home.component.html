@@ -1,0 +1,31 @@
+<ion-header>
+  <div class="a">
+    <ion-toolbar class="my-toolbar">
+      <ion-buttons slot="start">
+        <ion-button (click)="regresar()" fill="clear" color="warning">
+          <mat-icon>logout</mat-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="titles" size="small" style="color: white;">
+        Home
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="warning">
+          <mat-icon>account_circle</mat-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+</ion-header>
+<ion-content>
+  <div class="content-title">
+    <p>Bienvenido</p>
+    <p>{{local_nombre}}</p>
+  </div>
+  <div id="container">
+  <div class="nombre"><b>Bienvenido </b>{{local_nombre}}</div>
+
+  <div *ngFor="let a of asistenciaspef"><p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p></div>
+    <ion-button (click)='insertarAsistencia()' color="danger" expand="block">marcar asistencia</ion-button>
+  </div>
+</ion-content>

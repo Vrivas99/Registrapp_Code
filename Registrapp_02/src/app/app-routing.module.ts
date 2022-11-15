@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recovery/recovery.module').then( m => m.RecoveryPageModule),
     canActivate : [NotLogedGuard]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  }
 ];
 
 @NgModule({
