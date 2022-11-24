@@ -7,7 +7,7 @@
         </ion-button>
       </ion-buttons>
       <ion-title class="titles" size="small" style="color: white;">
-        Asistencia
+        Generar QR
       </ion-title>
       <ion-buttons slot="end">
         <ion-button color="warning">
@@ -18,9 +18,13 @@
   </div>
 </ion-header>
 <ion-content>
-  <qrcode [qrdata]="AngularxQrcode" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
-  <h1>Eliga una clase para generar su QR</h1>
-  <ion-button (click)="generarQRprog()">Programacion</ion-button>
-  <ion-button (click)="generarQResta()">Estadistica</ion-button>
-  <ion-button (click)="generarQRport()">Portafolio</ion-button>
+  <div class="qrContainter">
+    <qrcode [qrdata]="AngularxQrcode" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+  <h1 class="titles">Eliga una clase para generar su QR</h1>
+  <div class="btnsContainer">
+    <ion-button shape="round" color="dark" size="large" (click)="generarQRprog()">Programacion</ion-button>
+    <ion-button shape="round" color="dark" size="large" (click)="generarQResta()">Estadistica</ion-button>
+    <ion-button shape="round" color="dark" size="large" (click)="generarQRport()">Portafolio</ion-button>
+  </div>
 </ion-content>

@@ -45,7 +45,7 @@ export class HomePage {
     this.local_nombre = var_nom.name.replace(/(?<=\S)\s\S+/, '');
   }
 
-  async openEmail(cor){
+  async openEmail(cor,asig,sec){
     var var_user = JSON.parse(localStorage.getItem('usuario'))
     const date = new Date();
     const now = date.toLocaleString();
@@ -53,9 +53,10 @@ export class HomePage {
       to: cor,
       cc: var_user.username+'@duocuc.cl',
       subject:'Registro Asistencia',
-      body: 'El alumno:\n' + 
-      this.local_nombre +'\nregistro sus asistencia de clases'+ 
-      '\nEl: ' + now
+      body: 'Alumno:\n' + 
+      this.local_nombre + 
+      '\nEl: ' + now + '\nAsignatura: ' + asig +
+      '\nSeccion: ' + sec
     };
     this.EmailComposer.open(email);
   }
@@ -75,7 +76,7 @@ export class HomePage {
                               doc,
                               cor);
       console.log('Barcode data', json);
-      this.openEmail(cor);
+      this.openEmail(cor,asig,sec);
     }).catch(err => {
         console.log('Error', err);
     });
