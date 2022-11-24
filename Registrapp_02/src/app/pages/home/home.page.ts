@@ -46,11 +46,12 @@ export class HomePage {
   }
 
   async openEmail(cor){
+    var var_user = JSON.parse(localStorage.getItem('usuario'))
     const date = new Date();
     const now = date.toLocaleString();
     const email: EmailComposerOptions = {
       to: cor,
-      cc: '',
+      cc: var_user.username+'@duocuc.cl',
       subject:'Registro Asistencia',
       body: 'El alumno:\n' + 
       this.local_nombre +'\nregistro sus asistencia de clases'+ 
