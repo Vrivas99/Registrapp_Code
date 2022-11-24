@@ -11,10 +11,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,AngularFireModule.initializeApp(environment.firebaseConfig),AngularFirestoreModule, BrowserAnimationsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,AngularFireModule.initializeApp(environment.firebaseConfig),AngularFirestoreModule, BrowserAnimationsModule,QRCodeModule],
   providers: [BarcodeScanner,EmailComposer,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

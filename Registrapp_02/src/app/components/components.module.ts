@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { AsistenciaComponent } from './asistencia/asistencia.component';
 import { HomeComponent } from './home/home.component';
 import {MatIconModule} from '@angular/material/icon';
-
+import { QRCodeModule } from 'angularx-qrcode';
 /*
 Utilizo referencia a los componentes por medio del selector. Por esto
 necesito generar este archivo, acá agrego la referencia a todos los componentes que utilizaré
@@ -17,6 +17,7 @@ necesito generar este archivo, acá agrego la referencia a todos los componentes
     CommonModule,
     IonicModule,
     MatIconModule,
+    QRCodeModule
     ]
 })
 export class ComponentsModule { }
