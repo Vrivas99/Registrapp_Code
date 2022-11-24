@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { ToastController } from '@ionic/angular';
 import { FirestoreService } from 'src/app/services/databases/firestore.service';
 import { AsistenciaModel } from 'src/app/services/databases/models/models';
+import { EmailComposer, EmailComposerOptions } from '@awesome-cordova-plugins/email-composer/ngx';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ import { AsistenciaModel } from 'src/app/services/databases/models/models';
 export class HomePage {
   code:any;
   
-  constructor(private barcodeScanner: BarcodeScanner,private afs: FirestoreService,private ToastController:ToastController) {}
+  constructor(private barcodeScanner: BarcodeScanner,private afs: FirestoreService, private EmailComposer:EmailComposer) {}
 
   ngOnInit(){
     this.storage();
@@ -45,6 +45,20 @@ export class HomePage {
     this.local_nombre = var_nom.name.replace(/(?<=\S)\s\S+/, '');
   }
 
+  async openEmail(cor){
+    const date = new Date();
+    const now = date.toLocaleString();
+    const email: EmailComposerOptions = {
+      to: cor,
+      cc: '',
+      subject:'Registro Asistencia',
+      body: 'El alumno:\n' + 
+      this.local_nombre +'\nregistro sus asistencia de clases'+ 
+      '\nEl: ' + now
+    };
+    this.EmailComposer.open(email);
+  }
+
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
       /* this.code = barcodeData.text; */
@@ -60,6 +74,7 @@ export class HomePage {
                               doc,
                               cor);
       console.log('Barcode data', json);
+      this.openEmail(cor);
     }).catch(err => {
         console.log('Error', err);
     });
