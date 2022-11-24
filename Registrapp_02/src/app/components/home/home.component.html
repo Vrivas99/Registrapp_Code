@@ -33,7 +33,7 @@
           <ion-item slot="header" color="dark">
             <ion-label>Programacion</ion-label>
           </ion-item>
-          <div class="ion-padding" slot="content" *ngFor="let a of asistenciaspef">
+          <div class="ion-padding" slot="content" *ngFor="let a of asistenciafill1">
             <p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p><p class="fecha">{{a.asistencia.idAsignatura}}</p>
           </div>
         </ion-accordion>
@@ -51,8 +51,8 @@
             <ion-label>Estadistica</ion-label>
           </ion-item>
           
-          <div class="ion-padding" slot="content">
-            Estadistica
+          <div class="ion-padding" slot="content" *ngFor="let a of asistenciafill2">
+            <p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p><p class="fecha">{{a.asistencia.idAsignatura}}</p>
           </div>
         </ion-accordion>
       </ion-accordion-group>
@@ -68,8 +68,8 @@
           <ion-item slot="header" color="dark">
             <ion-label>Proceso Portafolio</ion-label>
           </ion-item>
-          <div class="ion-padding" slot="content">
-            Proceso Portafolio
+          <div class="ion-padding" slot="content" *ngFor="let a of asistenciafill3">
+            <p class="nombre">{{a.asistencia.nombre}}</p><p class="fecha">{{a.asistencia.dia}}</p><p class="fecha">{{a.asistencia.idAsignatura}}</p>
           </div>
         </ion-accordion>
       </ion-accordion-group>

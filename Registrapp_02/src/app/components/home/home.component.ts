@@ -30,14 +30,33 @@ export class HomeComponent implements OnInit {
 
   //funcion get en la bd de firebase para filtrar por el nombre de usuario el dato
   asistenciaspef=[];
+  asistenciafill1=[];
+  asistenciafill2=[];
+  asistenciafill3=[];
   recuperarAsistencia(){
     this.afs.getCollection<AsistenciaModel>('Asistencias').subscribe((res)=>{
       console.log('BD cargada estos son todos los datos :',res);
       this.asistenciaspef.length=0;
+      this.asistenciafill1.length=0;
+      this.asistenciafill2.length=0;
+      this.asistenciafill3.length=0;
       for (let index = 0; index < res.length; index++) {
         if (res[index].asistencia.nombre==this.local_nombre) {
           this.asistenciaspef.push(res[index]);
           console.log('this.asistenciaspef encontrada: ', this.asistenciaspef)
+        }
+      }
+      for (let index = 0; index < this.asistenciaspef.length; index++) {
+        if (this.asistenciaspef[index].asistencia.idAsignatura=='PGY10101') {
+          this.asistenciafill1.push(this.asistenciaspef[index]);
+          console.log('asistenciafill1: ',this.asistenciafill1);
+        } else 
+        if (this.asistenciaspef[index].asistencia.idAsignatura=='EST20202') {
+          this.asistenciafill2.push(this.asistenciaspef[index]);
+        }
+          else 
+        if (this.asistenciaspef[index].asistencia.idAsignatura=='PRT30303') {
+          this.asistenciafill3.push(this.asistenciaspef[index]);
         }
       }
     });
