@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { UsuariosAPIService } from 'src/app/services/apis/usuarios-api.service';
 import { FirestoreService } from 'src/app/services/databases/firestore.service';
 import { UserModel } from 'src/app/services/databases/models/models';
@@ -13,7 +14,8 @@ export class LoginPage implements OnInit {
   constructor(
     private api: UsuariosAPIService,
     private router: Router,
-    private afs: FirestoreService
+    private afs: FirestoreService,
+    private alt: AlertController
   ) {}
 
   //ciclos de vida
@@ -30,6 +32,19 @@ export class LoginPage implements OnInit {
       console.log(this.api_users);
     });
   }
+  //alertaa script
+  async presentAlert() {
+    const alert = await this.alt.create({
+      header: 'Alerta',
+      subHeader: 'Inputs Vacios',
+      message: 'Debes ingresar datos en las casillas para poder ingresar',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+
 
   //validar cualquier variable pasada como no vacia [le otorgo despues los inputs de la visual a esto]
   validarObjeto(model: any) {
@@ -41,6 +56,7 @@ export class LoginPage implements OnInit {
       model.username == '' ||
       model.password == ''
     ) {
+      this.presentAlert();
       return true;
     } else {
       return false;
