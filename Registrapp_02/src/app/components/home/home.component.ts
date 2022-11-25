@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/services/databases/firestore.service';
-import { AsistenciaModel } from 'src/app/services/databases/models/models';
+import { AsistenciaModel, UserModel } from 'src/app/services/databases/models/models';
 @Component({
   selector: 'comp-home',
   templateUrl: './home.component.html',
@@ -24,8 +24,10 @@ export class HomeComponent implements OnInit {
   //funcion para recuperar el nombre del login
   local_nombre: any;
   storage(){
-    var var_nom = JSON.parse(localStorage.getItem('usuario'));
-    this.local_nombre = var_nom.name.replace(/(?<=\S)\s\S+/, '');
+    this.afs.getCollection<UserModel>('Usuarios').subscribe((res)=>{
+      var var_nom=res[0].usuario.nombre
+      this.local_nombre = var_nom.replace(/(?<=\S)\s\S+/, '');
+    });
   }
 
   //funcion get en la bd de firebase para filtrar por el nombre de usuario el dato
@@ -70,7 +72,7 @@ export class HomeComponent implements OnInit {
   //funcion para regresar al login
   regresar(){
     localStorage.removeItem('loged');
+    this.afs.deleteDoc('Usuarios','usuarioactual');
     this.router.navigate(['/login']);
-    
   }
 }

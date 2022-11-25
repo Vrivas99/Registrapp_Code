@@ -21,6 +21,11 @@ export class FirestoreService {
     const collection = this.afs.collection<tipo>(path);
     return collection.valueChanges();
   }
+
+  deleteDoc(path: string, id: string){
+    const poto = this.afs.collection(path);
+    return poto.doc(id).delete();
+  }
   
   /*   getCollection(){
     console.log('recuperando firebase...');

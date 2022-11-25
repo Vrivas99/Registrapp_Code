@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirestoreService } from 'src/app/services/databases/firestore.service';
 @Component({
   selector: 'comp-asistencia',
   templateUrl: './asistencia.component.html',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AsistenciaComponent implements OnInit {
 
-  constructor(private router: Router,private _location: Location) { }
+  constructor(private router: Router,private _location: Location,private afs: FirestoreService) { }
 
 
   ngOnInit() {}
 
   regresar(){
     localStorage.removeItem('loged');
+    this.afs.deleteDoc('Usuarios','usuarioactual');
     this.router.navigate(['/login']);
 
   }
