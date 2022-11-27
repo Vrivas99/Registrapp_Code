@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.afs.getCollection<UserModel>('Usuarios').subscribe((res)=>{
       var var_nom=res[0].usuario.nombre
       this.local_nombre = var_nom.replace(/(?<=\S)\s\S+/, '');
+      this.recuperarAsistencia();
     });
   }
 
@@ -72,7 +73,6 @@ export class HomeComponent implements OnInit {
   //funcion para regresar al login
   regresar(){
     localStorage.removeItem('loged');
-    this.afs.deleteDoc('Usuarios','usuarioactual');
     this.router.navigate(['/login']);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵtextInterpolate1 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UsuariosAPIService } from 'src/app/services/apis/usuarios-api.service';
@@ -74,7 +74,9 @@ export class LoginPage implements OnInit {
     if (this.validarObjeto(this.visual_input) === false) {
       for (let i = 1; i < this.api_users.length; i++) {
         if (this.visual_input.username == this.api_users[i].username) {
+          var valid_user=true;
           if (this.visual_input.password == this.api_users[i].password) {
+            var valid_pass=true;
             console.log('Found Username: ' + this.api_users[i].username);
             console.log('Found Password: ' + this.api_users[i].password);
             var usuario = {
@@ -94,13 +96,35 @@ export class LoginPage implements OnInit {
               },
             };
             const path = 'Usuarios';
+            this.afs.updateDco(nuevousuario,path,'usuarioactual').then((res)=>{})
             this.afs.createDoc(nuevousuario, path, 'usuarioactual').then((res) => {
               console.log('guardado con exito', res);
             });
             this.router.navigate(['/home']);
             break;
+          }else{
+            valid_pass=false
           }
+        }else{
+          valid_user=false;
         }
+      }
+      if (valid_user==false || valid_pass==false) {
+        console.log("X usuario no valido X")
+        const fail = document.getElementById('error');
+        const inp = document.getElementById('lb1');
+        const inp2 = document.getElementById('lb2');
+        inp.style.color = 'rgb(255, 50, 50)';
+        inp2.style.color = 'rgb(255, 50, 50)';
+        fail.style.display = 'block';
+        //rgb(255, 50, 50)
+      } else {
+        const fail = document.getElementById('error');
+        const inp = document.getElementById('lb1');
+        const inp2 = document.getElementById('lb2');
+        inp.style.color = '#fff';
+        inp2.style.color = '#fff';
+        fail.style.display = 'none';
       }
     }
   }

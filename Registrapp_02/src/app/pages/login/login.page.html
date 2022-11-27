@@ -15,14 +15,19 @@
 
       <ion-card-content>
         <div class="input-container">
-          <ion-label class="form-input" position="floating">Usuario</ion-label>
+          <ion-label id="lb1" class="form-input" position="floating">Usuario</ion-label>
           <ion-input class="form-input" [(ngModel)]="visual_input.username" placeholder="vi.rivas"></ion-input>
         </div>
         <div class="input-container">
-          <ion-label position="floating">Contraseña</ion-label>
+          <ion-label id="lb2" class="form-input" position="floating">Contraseña</ion-label>
           <ion-input [(ngModel)]="visual_input.password" type="password" inputmode="numeric" placeholder="****"></ion-input>
         </div>
+        <div>
+        <b id="error">Los datos ingresados son invalidos</b>
+        </div>
       </ion-card-content>
+
+      
       <div class="recuperar">
         <a class="link" (click)="recuperar()">¿Olvidaste tu contraseña?</a>
       </div>

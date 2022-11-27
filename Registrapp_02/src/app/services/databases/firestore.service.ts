@@ -22,9 +22,14 @@ export class FirestoreService {
     return collection.valueChanges();
   }
 
+  updateDco(data:any,path:string,id:string){
+    const docu = this.afs.collection(path);
+    return docu.doc(id).update(data);
+  }
+
   deleteDoc(path: string, id: string){
-    const poto = this.afs.collection(path);
-    return poto.doc(id).delete();
+    const docu = this.afs.collection(path);
+    return docu.doc(id).delete();
   }
   
   /*   getCollection(){

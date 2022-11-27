@@ -16,7 +16,6 @@ export class AsistenciaComponent implements OnInit {
 
   regresar(){
     localStorage.removeItem('loged');
-    this.afs.deleteDoc('Usuarios','usuarioactual');
     this.router.navigate(['/login']);
 
   }
